@@ -218,9 +218,12 @@ def chart_heatmap(df):
         text=corr.round(2).values, texttemplate="%{text}", textfont={"size": 10},
         showscale=True,
     ))
-    fig.update_layout(**PLOTLY_LAYOUT, height=420,
-                      xaxis=dict(tickangle=-35, gridcolor="rgba(0,0,0,0)"),
-                      yaxis=dict(gridcolor="rgba(0,0,0,0)"))
+    # Build layout without xaxis/yaxis from PLOTLY_LAYOUT to avoid duplicate key error
+    layout = {k: v for k, v in PLOTLY_LAYOUT.items() if k not in ("xaxis", "yaxis")}
+    layout["height"] = 420
+    layout["xaxis"] = dict(tickangle=-35, gridcolor="rgba(0,0,0,0)", linecolor="rgba(0,0,0,0)")
+    layout["yaxis"] = dict(gridcolor="rgba(0,0,0,0)", linecolor="rgba(0,0,0,0)")
+    fig.update_layout(**layout)
     st.plotly_chart(fig, use_container_width=True)
 
 

@@ -145,7 +145,7 @@ def build_narrative(df):
             row      = corr_df.iloc[0]
             f1       = str(row["feature_1"])
             f2       = str(row["feature_2"])
-            corr_val = float(row["corr"])
+            corr_val = float(row["corr_val"])
             strength = "very strongly" if corr_val > 0.8 else "moderately" if corr_val > 0.5 else "weakly"
             parts.append(f"Strongest relationship: {f1} and {f2} (|r| = {corr_val:.2f}), they {strength} move together.")
         if not cat.empty:
@@ -195,10 +195,10 @@ def chart_correlations(df):
         return
     corr_df = corr_df.copy()
     corr_df["pair"] = corr_df["feature_1"].astype(str) + " ↔ " + corr_df["feature_2"].astype(str)
-    corr_df["corr"] = corr_df["corr"].astype(float)
-    fig = px.bar(corr_df, x="corr", y="pair", orientation="h",
-                 color="corr", color_continuous_scale=[[0, BLUE], [0.5, AMBER], [1, CORAL]],
-                 text=corr_df["corr"].apply(lambda v: f"{v:.2f}"), range_x=[0, 1])
+    corr_df["corr_val"] = corr_df["corr_val"].astype(float)
+    fig = px.bar(corr_df, x="corr_val", y="pair", orientation="h",
+                 color="corr_val", color_continuous_scale=[[0, BLUE], [0.5, AMBER], [1, CORAL]],
+                 text=corr_df["corr_val"].apply(lambda v: f"{v:.2f}"), range_x=[0, 1])
     fig.update_traces(textposition="outside", marker_line_width=0, marker_cornerradius=4)
     fig.update_layout(**PLOTLY_LAYOUT, showlegend=False, coloraxis_showscale=False,
                       height=max(220, len(corr_df) * 40 + 60), yaxis_title="", xaxis_title="|Correlation|")

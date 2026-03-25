@@ -374,7 +374,7 @@ def main():
                     f"<td style='padding:8px 12px;font-size:12px;font-family:monospace'>{str(row['feature_1'])}</td>"
                     "<td style='padding:8px;color:#9a9894;text-align:center'>↔</td>"
                     f"<td style='padding:8px 12px;font-size:12px;font-family:monospace'>{str(row['feature_2'])}</td>"
-                    f"<td style='padding:8px 12px;text-align:right'>{corr_badge(float(row['corr']))}</td>"
+                    f"<td style='padding:8px 12px;text-align:right'>{corr_badge(float(row['corr_val']))}</td>"
                     "</tr>"
                     for _, row in corr_df.iterrows()
                 )

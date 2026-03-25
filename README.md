@@ -1,15 +1,16 @@
-# 📊 Data Storyteller
+# Data Storyteller
+https://data-storyteller-hygjyzd9shuxk42gb8m28e.streamlit.app/
 
 An interactive ecommerce data analysis dashboard built with Streamlit.
 Upload any CSV and instantly get summaries, correlations, missing-value analysis, and an AI-written narrative.
 
 ## Features
 
-- 📂 Drag-and-drop CSV upload (or load demo dataset)
-- 📖 AI-generated data narrative powered by Claude
-- 💡 Auto insights with severity tagging
-- 📊 Interactive charts — numeric summary, missing values, correlations, categorical breakdown
-- 🔬 Scatter explorer and raw data preview
+- Drag-and-drop CSV upload (or load demo dataset)
+- AI-generated data narrative powered by Claude
+- Auto insights with severity tagging
+- Interactive charts — numeric summary, missing values, correlations, categorical breakdown
+- Scatter explorer and raw data preview
 
 ## Setup
 
